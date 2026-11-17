@@ -1,0 +1,504 @@
+{
+  "id": "deye-p3",
+  "name": "Deye three-phase hybrid",
+  "rating": [
+    20,
+    21
+  ],
+  "phase_register": 22,
+  "phases": 3,
+  "mppts": 2,
+  "max_power": 30000,
+  "blocks": [
+    [
+      142,
+      1
+    ],
+    [
+      500,
+      32
+    ],
+    [
+      532,
+      10
+    ],
+    [
+      586,
+      32
+    ],
+    [
+      618,
+      32
+    ],
+    [
+      650,
+      32
+    ],
+    [
+      682,
+      9
+    ]
+  ],
+  "work_modes": [
+    "Selling First",
+    "Zero Export To Load",
+    "Zero Export To CT"
+  ],
+  "metrics": [
+    {
+      "key": "device_state",
+      "label": "State",
+      "registers": [
+        500
+      ],
+      "rule": 1,
+      "scale": 1
+    },
+    {
+      "key": "work_mode",
+      "label": "Work mode",
+      "registers": [
+        142
+      ],
+      "rule": 1,
+      "scale": 1
+    },
+    {
+      "key": "pv1_v",
+      "label": "PV1 voltage",
+      "registers": [
+        676
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "pv1_i",
+      "label": "PV1 current",
+      "registers": [
+        677
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "A"
+    },
+    {
+      "key": "pv1_p",
+      "label": "PV1 power",
+      "registers": [
+        672
+      ],
+      "rule": 1,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "pv2_v",
+      "label": "PV2 voltage",
+      "registers": [
+        678
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "pv2_i",
+      "label": "PV2 current",
+      "registers": [
+        679
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "A"
+    },
+    {
+      "key": "pv2_p",
+      "label": "PV2 power",
+      "registers": [
+        673
+      ],
+      "rule": 1,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "pv3_p",
+      "label": "PV3 power",
+      "registers": [
+        674
+      ],
+      "rule": 1,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "pv4_p",
+      "label": "PV4 power",
+      "registers": [
+        675
+      ],
+      "rule": 1,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "bat_soc",
+      "label": "Battery SOC",
+      "registers": [
+        588
+      ],
+      "rule": 1,
+      "scale": 1,
+      "unit": "%"
+    },
+    {
+      "key": "bat_v",
+      "label": "Battery voltage",
+      "registers": [
+        587
+      ],
+      "rule": 1,
+      "scale": 0.01,
+      "unit": "V"
+    },
+    {
+      "key": "bat_power",
+      "label": "Battery power",
+      "registers": [
+        590
+      ],
+      "rule": 2,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "bat_temp",
+      "label": "Battery temp",
+      "registers": [
+        586
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "offset": 1000,
+      "unit": "°C"
+    },
+    {
+      "key": "grid_l1_v",
+      "label": "Grid L1 voltage",
+      "registers": [
+        598
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "grid_l2_v",
+      "label": "Grid L2 voltage",
+      "registers": [
+        599
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "grid_l3_v",
+      "label": "Grid L3 voltage",
+      "registers": [
+        600
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "grid_freq",
+      "label": "Grid frequency",
+      "registers": [
+        609
+      ],
+      "rule": 1,
+      "scale": 0.01,
+      "unit": "Hz"
+    },
+    {
+      "key": "grid_l1_p",
+      "label": "Grid L1 power",
+      "registers": [
+        622,
+        687
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "grid_l2_p",
+      "label": "Grid L2 power",
+      "registers": [
+        623,
+        688
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "grid_l3_p",
+      "label": "Grid L3 power",
+      "registers": [
+        624,
+        689
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "grid_power",
+      "label": "Grid power",
+      "registers": [
+        625,
+        690
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "load_l1_v",
+      "label": "Load L1 voltage",
+      "registers": [
+        644
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "load_l2_v",
+      "label": "Load L2 voltage",
+      "registers": [
+        645
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "load_l3_v",
+      "label": "Load L3 voltage",
+      "registers": [
+        646
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "V"
+    },
+    {
+      "key": "load_freq",
+      "label": "Load frequency",
+      "registers": [
+        655
+      ],
+      "rule": 1,
+      "scale": 0.01,
+      "unit": "Hz"
+    },
+    {
+      "key": "load_l1_p",
+      "label": "Load L1 power",
+      "registers": [
+        650,
+        656
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "load_l2_p",
+      "label": "Load L2 power",
+      "registers": [
+        651,
+        657
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "load_l3_p",
+      "label": "Load L3 power",
+      "registers": [
+        652,
+        658
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "load_power",
+      "label": "Load power",
+      "registers": [
+        653,
+        659
+      ],
+      "rule": 4,
+      "scale": 1,
+      "unit": "W"
+    },
+    {
+      "key": "temp_dc",
+      "label": "DC/heatsink temp",
+      "registers": [
+        540
+      ],
+      "rule": 2,
+      "scale": 0.1,
+      "offset": 1000,
+      "unit": "°C"
+    },
+    {
+      "key": "temp_ac",
+      "label": "AC/IGBT temp",
+      "registers": [
+        541
+      ],
+      "rule": 2,
+      "scale": 0.1,
+      "offset": 1000,
+      "unit": "°C"
+    },
+    {
+      "key": "e_today_pv",
+      "label": "Today PV",
+      "registers": [
+        529
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_today_load",
+      "label": "Today load",
+      "registers": [
+        526
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_today_chg",
+      "label": "Today battery charge",
+      "registers": [
+        514
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_today_dis",
+      "label": "Today battery discharge",
+      "registers": [
+        515
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_today_imp",
+      "label": "Today grid import",
+      "registers": [
+        520
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_today_exp",
+      "label": "Today grid export",
+      "registers": [
+        521
+      ],
+      "rule": 1,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_pv",
+      "label": "Total PV",
+      "registers": [
+        534,
+        535
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_load",
+      "label": "Total load",
+      "registers": [
+        527,
+        528
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_chg",
+      "label": "Total battery charge",
+      "registers": [
+        516,
+        517
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_dis",
+      "label": "Total battery discharge",
+      "registers": [
+        518,
+        519
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_imp",
+      "label": "Total grid import",
+      "registers": [
+        522,
+        523
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    },
+    {
+      "key": "e_total_exp",
+      "label": "Total grid export",
+      "registers": [
+        524,
+        525
+      ],
+      "rule": 3,
+      "scale": 0.1,
+      "unit": "kWh"
+    }
+  ]
+}

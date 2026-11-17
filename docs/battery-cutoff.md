@@ -1,0 +1,13 @@
+# Off-grid battery discharge cutoff (AM3)
+
+The monitor displays holding register **217** as **Shutdown SOC**. This is a read-only setting, distinct from live battery SOC (register 184). A validated AM3 snapshot read 217 = **20%**, 218 = 50% and 219 = 35%; these observed values are not assumed to apply to every installation.
+
+The public C37B HMI firmware maps registers 217, 218 and 219 to separate words at `0x200001F6`, `0x200001F8` and `0x200001FA` in its register handler `0x0802E98C`. Its MAIN-link image builder `0x0800DCAC` sends those three settings separately. In `0x08032804`, the HMI compares SOC with the register-219 word for the low-battery indicator, using the register-217 word as a lower bound. That is evidence that **Low Batt** (219) and **Shutdown** (217) have different roles; this HMI display path alone does not prove the MAIN controller's shutdown branch.
+
+The available B028 R1 MAIN application has a matching receiver path: at C28 word `0x308A2E`, the `AA/10` write handler copies the HMI's register-200 block into MAIN RAM starting at `0xE5C0`. Thus registers 217, 218 and 219 occupy `0xE5D1`, `0xE5D2` and `0xE5D3`. Initialization at `0x30C3AB` gives them distinct defaults of **20%, 50% and 35%**. Controller branches at `0x304922` and `0x3049C0` compare the register-217 word with the 0–100 battery control value at `0xE800`; a recovery branch at `0x3043DA` compares register 218 with that value. This controller-side use supports 217 as the off-grid cutoff setting. We have not fully traced the downstream power-stage actuator or proved that this public R1 image is byte-identical to the installed MAIN build.
+
+The [exact-family Deye manual](https://www.deyeinverter.com/deyeinverter/2026/05/19/BManualSUN-5-12K-SG02LP1-EU-AM320260519en.pdf), printed page 35 / PDF page 36, defines **Shutdown** as the off-grid SOC at which the DC/AC inverter module stops output, leaving solar available to charge the battery. **Restart** is the off-grid recovery threshold. It defines **Low Batt** as an on-grid threshold subject to grid charging and Time of Use settings. The monitor shows 217 in the Battery card and the other configuration values in the adjacent, always-visible Advanced battery settings card.
+
+The cutoff acts on SOC as reported to the inverter. For parallel batteries, the available CAN summary's coverage of individual packs is unverified. The displayed cutoff is therefore not a verified minimum for each pack.
+
+The C37B image matches the installed HMI version label. The B028 R1 MAIN image matches the installed B028 family, but byte identity with the installed B028-1726 build remains unverified. Firmware was inspected offline and no inverter setting was changed.

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title description">
+  <title id="title">Deye Monitor</title>
+  <desc id="description">A golden sun rising above six blue solar panels on a deep teal tile.</desc>
+  <defs>
+    <linearGradient id="tile" x1="24" y1="8" x2="220" y2="248" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#174b48"/>
+      <stop offset="1" stop-color="#0b302f"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="161" y1="54" x2="189" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe59b"/>
+      <stop offset="1" stop-color="#f6b94b"/>
+    </linearGradient>
+    <linearGradient id="panels" x1="96" y1="122" x2="141" y2="194" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#357f99"/>
+      <stop offset="1" stop-color="#205169"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="55" fill="url(#tile)"/>
+  <rect x="9" y="9" width="238" height="238" rx="54" fill="none" stroke="#fff" stroke-opacity=".1" stroke-width="2"/>
+  <g fill="none" stroke="#ffd778" stroke-width="7" stroke-linecap="round">
+    <path d="M174 28v11m28 12 8-8m3 35h11m-22 27 8 8m-36 4v11m-27-23-8 8m-4-35h-11m23-27-8-8"/>
+  </g>
+  <circle cx="174" cy="78" r="25" fill="url(#sun)"/>
+  <path d="M61 129h112l31 72H31Z" fill="#041f24" fill-opacity=".35"/>
+  <g fill="none" stroke="#a2e2d7" stroke-width="6" stroke-linecap="round">
+    <path d="M117 194v19m-21 0h42"/>
+  </g>
+  <path d="M61 122h112l31 72H31Z" fill="url(#panels)" stroke="#b4eee6" stroke-width="6" stroke-linejoin="round"/>
+  <g fill="none" stroke="#88d8da" stroke-width="3.5" stroke-linecap="round">
+    <path d="m98.3 122-9.6 72m47-72 10.6 72M46 158h142.5"/>
+  </g>
+  <path d="M64 128h106" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="3" stroke-linecap="round"/>
+</svg>

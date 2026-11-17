@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Deye Monitor
+Comment=Monitor local solar production, battery storage and home energy
+Exec=@DEYE_DESKTOP_EXEC@
+Icon=com.deye.monitor
+Terminal=false
+Categories=Utility;
+Keywords=solar;energy;Deye;inverter;monitor;
+StartupNotify=true

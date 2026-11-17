@@ -1,0 +1,14 @@
+.DS_Store
+/bin/
+/build*/
+/CMakeUserPresets.json
+/.qt/
+/.cache/
+/.idea/
+*.user
+# Local configuration and diagnostic captures belong outside source control.
+/.env
+/.env.*
+*.ini
+/deye-probe*.json
+/deye-snapshot*.json
