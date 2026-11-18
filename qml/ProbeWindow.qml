@@ -69,10 +69,13 @@ ApplicationWindow {
     }
 
     component LabelText: Text {
-        color: "#657f70"
-        font.pixelSize: 12
+        color: "#607a6b"
+        font.pixelSize: 13
         wrapMode: Text.WordWrap
         Layout.fillWidth: true
+    }
+    component HelpText: LabelText {
+        color: "#778780"
     }
     component ProbeButton: Button {
         id: probeButton
@@ -98,12 +101,12 @@ ApplicationWindow {
     component ProbeCheckBox: CheckBox {
         id: probeCheckBox
         Layout.fillWidth: true
-        font.pixelSize: 12
+        font.pixelSize: 13
         palette.highlight: "#008d70"
         contentItem: Text {
             text: probeCheckBox.text
             font: probeCheckBox.font
-            color: probeCheckBox.enabled ? "#183d37" : "#83958d"
+            color: probeCheckBox.enabled ? "#183d37" : "#778780"
             verticalAlignment: Text.AlignVCenter
             leftPadding: probeCheckBox.indicator.width + probeCheckBox.spacing
             wrapMode: Text.WordWrap
@@ -120,9 +123,8 @@ ApplicationWindow {
             font.weight: Font.DemiBold
             color: "#183d37"
         }
-        LabelText {
+        HelpText {
             text: "Save information about the startup problem to help add or fix support for your inverter or logger. You can also collect more data using the saved connection."
-            color: "#83958d"
         }
         LabelText {
             objectName: "probeDemoNotice"
@@ -137,7 +139,7 @@ ApplicationWindow {
             clip: true
             ColumnLayout {
                 width: parent.width
-                spacing: 12
+                spacing: 9
                 LabelText {
                     text: "Exact inverter model (required)"
                 }
@@ -149,6 +151,7 @@ ApplicationWindow {
                     enabled: !probeWindow.controller.running
                     font.pixelSize: 13
                     color: "#183d37"
+                    placeholderTextColor: "#778780"
                     selectByMouse: true
                     leftPadding: 12
                     maximumLength: 160
@@ -159,10 +162,8 @@ ApplicationWindow {
                         border.color: parent.activeFocus ? "#2eaa83" : "#d9e5dd"
                     }
                 }
-                LabelText {
+                HelpText {
                     text: "Copy the full model from the inverter label."
-                    color: "#83958d"
-                    font.pixelSize: 11
                 }
                 LabelText {
                     text: "Reference readings and conditions (optional)"
@@ -171,10 +172,11 @@ ApplicationWindow {
                     id: notes
                     objectName: "probeNotes"
                     Layout.fillWidth: true
-                    Layout.preferredHeight: 116
+                    Layout.preferredHeight: 96
                     enabled: !probeWindow.controller.running
-                    font.pixelSize: 12
+                    font.pixelSize: 13
                     color: "#183d37"
+                    placeholderTextColor: "#778780"
                     selectByMouse: true
                     wrapMode: TextEdit.Wrap
                     padding: 12
@@ -192,10 +194,8 @@ ApplicationWindow {
                     checked: false
                     enabled: !probeWindow.controller.running
                 }
-                LabelText {
+                HelpText {
                     text: "This uses bounded, read-only ranges from known inverter families. It does not sweep registers."
-                    font.pixelSize: 11
-                    color: "#83958d"
                 }
                 Rectangle {
                     Layout.fillWidth: true
@@ -219,22 +219,17 @@ ApplicationWindow {
                     indeterminate: probeWindow.controller.total <= 0
                     palette.highlight: "#008d70"
                 }
-                LabelText {
+                HelpText {
                     visible: probeWindow.controller.running && probeWindow.controller.total > 0
                     text: probeWindow.controller.completed + " / " + probeWindow.controller.total + " reads"
-                    font.pixelSize: 11
-                    color: "#83958d"
                 }
-                LabelText {
+                HelpText {
                     text: "A partial report is useful even if the inverter is unsupported or some reads fail."
-                    font.pixelSize: 11
-                    color: "#83958d"
                 }
                 LabelText {
                     objectName: "probeExistingEvidenceNotice"
                     visible: probeWindow.controller.ready && !probeWindow.controller.running
                     text: "Existing evidence can be saved without starting another probe."
-                    font.pixelSize: 11
                     color: "#486c57"
                 }
                 ProbeCheckBox {
@@ -244,10 +239,8 @@ ApplicationWindow {
                     checked: false
                     enabled: !probeWindow.controller.running
                 }
-                LabelText {
+                HelpText {
                     text: "Reports omit those identifiers by default. Logger web credentials are never included. Save the JSON file to share it yourself; nothing is uploaded."
-                    font.pixelSize: 11
-                    color: "#83958d"
                 }
                 ProbeButton {
                     objectName: "probeExportButton"
@@ -259,7 +252,6 @@ ApplicationWindow {
                     objectName: "probeExportMessage"
                     visible: probeWindow.exportMessage.length > 0
                     text: probeWindow.exportMessage
-                    font.pixelSize: 11
                     color: probeWindow.exportError ? "#b45e30" : "#168466"
                 }
             }
