@@ -66,8 +66,8 @@ Rectangle {
         Text {
             text: card.note
             visible: text.length > 0
-            color: "#83918c"
-            font.pixelSize: 11
+            color: "#778780"
+            font.pixelSize: 13
             elide: Text.ElideRight
             Layout.fillWidth: true
         }
