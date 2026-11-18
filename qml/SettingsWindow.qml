@@ -86,6 +86,7 @@ ApplicationWindow {
         implicitHeight: 40
         font.pixelSize: 13
         color: "#183d37"
+        placeholderTextColor: "#778780"
         selectByMouse: true
         leftPadding: 12
         background: Rectangle {
@@ -95,8 +96,14 @@ ApplicationWindow {
         }
     }
     component LabelText: Text {
-        color: "#657f70"
-        font.pixelSize: 12
+        color: "#607a6b"
+        font.pixelSize: 13
+    }
+    component HelpText: Text {
+        color: "#778780"
+        font.pixelSize: 13
+        wrapMode: Text.WordWrap
+        Layout.fillWidth: true
     }
     component NumberField: SpinBox {
         id: spin
@@ -206,10 +213,8 @@ ApplicationWindow {
             font.weight: Font.DemiBold
             color: "#183d37"
         }
-        Text {
+        HelpText {
             text: "Find your logger and let Deye select its inverter profile."
-            color: "#83958d"
-            font.pixelSize: 12
         }
         ScrollView {
             Layout.fillWidth: true
@@ -218,7 +223,7 @@ ApplicationWindow {
             contentWidth: availableWidth
             ColumnLayout {
                 width: parent.width
-                spacing: 13
+                spacing: 11
                 LabelText {
                     text: "Logger IP address"
                 }
@@ -244,12 +249,8 @@ ApplicationWindow {
                         }
                     }
                 }
-                Text {
+                HelpText {
                     text: config.scanMessage
-                    color: "#83958d"
-                    font.pixelSize: 11
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
                 }
                 ChoiceField {
                     visible: config.results.length > 1
@@ -314,12 +315,8 @@ ApplicationWindow {
                     valueRole: "id"
                     model: monitor.profileOptions
                 }
-                Text {
+                HelpText {
                     text: "Unsupported devices stop with a clear message. After a connection loss, the same logger is found and reconnected automatically."
-                    wrapMode: Text.WordWrap
-                    Layout.fillWidth: true
-                    font.pixelSize: 11
-                    color: "#83958d"
                 }
                 LabelText {
                     text: "Display model name (optional)"
@@ -358,11 +355,8 @@ ApplicationWindow {
         }
         RowLayout {
             Layout.fillWidth: true
-            Text {
+            HelpText {
                 text: "Local access · read only"
-                font.pixelSize: 11
-                color: "#83958d"
-                Layout.fillWidth: true
             }
             FormButton {
                 objectName: "cancelSettings"
