@@ -50,8 +50,8 @@ Flickable {
                         Text {
                             visible: Boolean(card.modelData.note)
                             text: card.modelData.note || ""
-                            color: "#7a8e86"
-                            font.pixelSize: 11
+                            color: "#778780"
+                            font.pixelSize: 13
                             wrapMode: Text.WordWrap
                             Layout.fillWidth: true
                         }
@@ -62,8 +62,10 @@ Flickable {
                                 Layout.fillWidth: true
                                 Text {
                                     text: modelData.label
-                                    color: "#7a8e86"
-                                    font.pixelSize: 12
+                                    color: "#778780"
+                                    font.pixelSize: 13
+                                    wrapMode: Text.WordWrap
+                                    Layout.minimumWidth: 0
                                     Layout.fillWidth: true
                                 }
                                 Text {
@@ -85,6 +87,7 @@ Flickable {
         visible: detail.groups.length === 0
         anchors.centerIn: parent
         text: "Telemetry appears after a complete reading."
-        color: "#83958d"
+        color: "#778780"
+        font.pixelSize: 13
     }
 }

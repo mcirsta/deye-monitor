@@ -151,8 +151,8 @@ Rectangle {
                         objectName: node.modelData.k + "FlowLabel"
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: node.modelData.title
-                        color: "#7a8e86"
-                        font.pixelSize: 11
+                        color: "#778780"
+                        font.pixelSize: 13
                     }
                     Text {
                         objectName: node.modelData.k + "FlowValue"
@@ -286,7 +286,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 15
         text: flow.workMode
-        color: "#83958d"
-        font.pixelSize: 10
+        color: "#778780"
+        font.pixelSize: 12
     }
 }

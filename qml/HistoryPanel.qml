@@ -26,8 +26,8 @@ Rectangle {
                 }
                 Text {
                     text: "This session · negative battery power means charging"
-                    font.pixelSize: 10
-                    color: "#83958d"
+                    font.pixelSize: 12
+                    color: "#778780"
                 }
             }
             Item {
@@ -47,8 +47,8 @@ Rectangle {
                             text: parent.text
                             horizontalAlignment: Text.AlignHCenter
                             verticalAlignment: Text.AlignVCenter
-                            color: panel.minutes === modelData ? "#007b63" : "#83958d"
-                            font.pixelSize: 11
+                            color: panel.minutes === modelData ? "#007b63" : "#778780"
+                            font.pixelSize: 13
                         }
                         background: Rectangle {
                             color: panel.minutes === modelData ? "#eaf5ef" : "transparent"
@@ -99,8 +99,8 @@ Rectangle {
                     }
                     Text {
                         text: modelData.label
-                        color: "#7a8e86"
-                        font.pixelSize: 11
+                        color: "#778780"
+                        font.pixelSize: 13
                     }
                 }
             }

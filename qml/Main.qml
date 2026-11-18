@@ -248,8 +248,8 @@ ApplicationWindow {
                 }
                 Text {
                     text: monitor.model + (monitor.serial ? "  ·  " + monitor.serial : "  ·  Select a logger to get started")
-                    font.pixelSize: 12
-                    color: "#7c9084"
+                    font.pixelSize: 13
+                    color: "#778780"
                 }
             }
             Item {
@@ -460,8 +460,8 @@ ApplicationWindow {
                                 }
                                 Text {
                                     text: "Inverter-reported SOC"
-                                    color: "#83958d"
-                                    font.pixelSize: 10
+                                    color: "#778780"
+                                    font.pixelSize: 12
                                 }
                                 Row {
                                     spacing: 5
@@ -475,7 +475,7 @@ ApplicationWindow {
                                     Text {
                                         text: "%"
                                         font.pixelSize: 19
-                                        color: "#83958d"
+                                        color: "#778780"
                                         anchors.bottom: parent.bottom
                                         anchors.bottomMargin: 9
                                     }
@@ -504,8 +504,8 @@ ApplicationWindow {
                                 Text {
                                     visible: root.batteryDirection < 0
                                     text: monitor.chargeEta || "Learning charge trend…"
-                                    color: "#83958d"
-                                    font.pixelSize: 11
+                                    color: "#778780"
+                                    font.pixelSize: 13
                                     Layout.bottomMargin: 5
                                 }
                                 Rectangle {
@@ -536,8 +536,8 @@ ApplicationWindow {
                                         Layout.fillWidth: true
                                         Text {
                                             text: modelData.label
-                                            color: "#83958d"
-                                            font.pixelSize: 11
+                                            color: "#778780"
+                                            font.pixelSize: 13
                                             Layout.fillWidth: true
                                         }
                                         Text {
@@ -589,15 +589,15 @@ ApplicationWindow {
             }
             Text {
                 text: monitor.status
-                color: "#8a9a8e"
-                font.pixelSize: 10
+                color: "#778780"
+                font.pixelSize: 12
                 Layout.fillWidth: true
                 elide: Text.ElideRight
             }
             Text {
                 text: (monitor.profile || "Auto profile") + "  ·  Updated " + monitor.updated
-                color: "#8a9a8e"
-                font.pixelSize: 10
+                color: "#778780"
+                font.pixelSize: 12
             }
         }
     }

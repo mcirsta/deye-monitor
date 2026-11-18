@@ -153,8 +153,9 @@ void HistoryChart::mouseReleaseEvent(QMouseEvent *event) {
 void HistoryChart::paint(QPainter *p) {
     p->setRenderHint(QPainter::Antialiasing);
     const QRectF plot = plotRect();
+    const QColor labelColor("#778780");
     QFont font = p->font();
-    font.setPixelSize(11);
+    font.setPixelSize(13);
     p->setFont(font);
     QList<QVariantMap> samples;
     qint64 end = m_samples.isEmpty() ? QDateTime::currentMSecsSinceEpoch()
@@ -185,23 +186,23 @@ void HistoryChart::paint(QPainter *p) {
     p->setPen(QColor("#e8eeeb"));
     for (double n = low; n <= high + step * .1; n += step) {
         p->drawLine(QPointF(plot.left(), y(n)), QPointF(plot.right(), y(n)));
-        p->setPen(QColor("#7b8d88"));
-        p->drawText(QRectF(0, y(n) - 8, 40, 16), Qt::AlignRight | Qt::AlignVCenter,
+        p->setPen(labelColor);
+        p->drawText(QRectF(0, y(n) - 9, 40, 18), Qt::AlignRight | Qt::AlignVCenter,
                     QString::number(n / 1000, 'g', 3));
         p->setPen(QColor("#e8eeeb"));
     }
-    p->setPen(QColor("#7b8d88"));
-    p->drawText(QPointF(13, 10), "kW");
+    p->setPen(labelColor);
+    p->drawText(QRectF(0, 0, 24, 18), Qt::AlignCenter, "kW");
     for (int n = 0; n <= 3; ++n) {
         qint64 t = start + (end - start) * n / 3;
         double x = plot.left() + plot.width() * n / 3;
-        p->drawText(QRectF(x - 24, plot.bottom() + 9, 48, 18), Qt::AlignCenter,
+        const double labelX = qMax(0., qMin(x - 24, width() - 48));
+        p->drawText(QRectF(labelX, plot.bottom() + 9, 48, 18), Qt::AlignCenter,
                     QDateTime::fromMSecsSinceEpoch(t).toString("HH:mm"));
     }
     const QStringList keys = {"pv", "load", "battery", "grid"},
                       colors = {"#e9a23b", "#5485c0", "#21a482", "#9679bc"};
     if (samples.isEmpty()) {
-        p->setPen(QColor("#7b8d88"));
         p->drawText(plot, Qt::AlignCenter, "Live history appears after the first reading");
     } else {
         p->save();
@@ -259,17 +260,17 @@ void HistoryChart::paint(QPainter *p) {
     p->setBrush(QColor("#ffffff"));
     p->setPen(QPen(QColor("#d4e3dc"), 1));
     p->drawRoundedRect(card, 8, 8);
-    font.setPixelSize(11);
+    font.setPixelSize(13);
     font.setWeight(QFont::DemiBold);
     p->setFont(font);
     p->setPen(QColor("#183d37"));
     p->drawText(QRectF(card.left() + 11, card.top() + 5, 100, 19),
                 Qt::AlignLeft | Qt::AlignVCenter,
                 QDateTime::fromMSecsSinceEpoch(m_cursorTime).toString("HH:mm:ss"));
-    font.setPixelSize(9);
+    font.setPixelSize(11);
     font.setWeight(QFont::Normal);
     p->setFont(font);
-    p->setPen(QColor("#83958d"));
+    p->setPen(labelColor);
     p->drawText(QRectF(card.right() - 120, card.top() + 5, 108, 19),
                 Qt::AlignRight | Qt::AlignVCenter,
                 m_cursorSample.isEmpty() ? "No reading" :
@@ -279,7 +280,7 @@ void HistoryChart::paint(QPainter *p) {
                 QPointF(card.right() - 11, card.top() + 30));
 
     const QStringList labels = {"Solar", "Home", "Battery", "Grid"};
-    font.setPixelSize(10);
+    font.setPixelSize(12);
     p->setFont(font);
     for (int index = 0; index < keys.size(); ++index) {
         const qreal cellX = card.left() + 11 + (index % 2) * 137;
