@@ -64,6 +64,7 @@ ApplicationWindow {
     Rectangle {
         id: sidebar
         width: 200
+        readonly property color mutedText: "#aac4b8"
         anchors {
             top: parent.top
             bottom: parent.bottom
@@ -98,9 +99,9 @@ ApplicationWindow {
             }
             Text {
                 text: "LOCAL ENERGY"
-                font.pixelSize: 9
-                font.letterSpacing: 2
-                color: "#71988a"
+                font.pixelSize: 11
+                font.letterSpacing: 1.6
+                color: sidebar.mutedText
                 Layout.leftMargin: 3
                 Layout.bottomMargin: 42
             }
@@ -140,9 +141,9 @@ ApplicationWindow {
                         }
                         Text {
                             text: modelData.label
-                            font.pixelSize: 12
+                            font.pixelSize: 13
                             font.weight: root.page === index ? Font.DemiBold : Font.Normal
-                            color: root.page === index ? "#e3f7e9" : "#9cbaac"
+                            color: root.page === index ? "#e3f7e9" : sidebar.mutedText
                             Layout.fillWidth: true
                         }
                     }
@@ -170,22 +171,24 @@ ApplicationWindow {
                         }
                         Text {
                             text: monitor.demo ? "DEMO PREVIEW" : monitor.connected ? "LOCAL CONNECTION" : "OFFLINE"
-                            color: "#9cc5b1"
-                            font.pixelSize: 8
-                            font.letterSpacing: .8
+                            color: sidebar.mutedText
+                            font.pixelSize: 11
+                            font.weight: Font.Medium
+                            font.letterSpacing: .5
                         }
                     }
                     Text {
                         text: monitor.host || "No logger selected"
                         color: "#daeee1"
-                        font.pixelSize: 12
+                        font.pixelSize: 14
                         elide: Text.ElideRight
                         Layout.fillWidth: true
+                        Layout.minimumWidth: 0
                     }
                     Text {
                         text: monitor.demo ? "Sample data" : "Read-only monitoring"
-                        color: "#769c88"
-                        font.pixelSize: 10
+                        color: sidebar.mutedText
+                        font.pixelSize: 12
                     }
                 }
             }
@@ -209,17 +212,17 @@ ApplicationWindow {
                     }
                     Text {
                         text: "Settings"
-                        font.pixelSize: 12
-                        color: "#9cbaac"
+                        font.pixelSize: 13
+                        color: sidebar.mutedText
                         Layout.fillWidth: true
                     }
                 }
             }
             Text {
                 text: "DESKTOP  /  2.0"
-                font.pixelSize: 8
+                font.pixelSize: 10
                 font.letterSpacing: 1
-                color: "#557e69"
+                color: sidebar.mutedText
                 Layout.leftMargin: 10
                 Layout.topMargin: 10
                 Layout.bottomMargin: 5
